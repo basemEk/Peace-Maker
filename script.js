@@ -1,9 +1,7 @@
-const textElement = document.getElementById('text')
-const optionsButtonsElement = document.getElementById('option-button')
-const imgElement = document.getElementById("img")
-let state = {}
+const textElement = document.getElementById('text');
+const optionsButtonsElement = document.getElementById('option-button');
+const imgElement = document.getElementById("img");
 function startGame() {
-    state = {}
     showTextNode(1)
 }
 function showTextNode(textNodeIndex) {
@@ -55,7 +53,6 @@ const textNodes = [
         options: [
             {
                 text: "USA camp",
-
                 nextText: 2
             }
             , {
