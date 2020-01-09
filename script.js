@@ -49,7 +49,7 @@ const textNodes = [
     {
         id: 1,
         text: `We are in 2020 finally, but the world is going mad and all signs refer to 
-        unavoidable world war, your mission in this game is to find the peace
+        unavoidable world war, your mission in this game is to find peace
          and prevent the near war. You have to join one of the Camps`,
         options: [
             {
@@ -66,8 +66,8 @@ const textNodes = [
     {
         id: 2,
         text: `you are now a military leader in the American Army, Donald trump
-         order the forces to assassinate a general from the enemy camp, now
-          the Russia and its allies planning to have their revenge.`
+         ordered the forces to assassinate a general from the enemy camp, now
+          Russia and its allies planning to have their revenge.`
         , options: [
             {
                 text: "War deceleration"
@@ -83,8 +83,8 @@ const textNodes = [
     {
         id: 3,
         text: `you are now a military leader in the Russian Army, Donald trump
-        order his forces to assassinate a general from your camp, now
-         you have the choice either to revenge or to clam down`,
+        ordered his forces to assassinate a general from your camp, now
+         you have the choice either to attack or to calm down`,
         options: [
             {
                 text: "Attack",
@@ -99,7 +99,7 @@ const textNodes = [
     },
     {
         id: 4,
-        text: "WW III started, GAME OVER!",
+        text: "World War 3 started, GAME OVER!",
         options: [
             {
                 text: "Restart",
@@ -110,7 +110,7 @@ const textNodes = [
     },
     {
         id: 5,
-        text: "Your country will discuss if it wants to declare a War again the enemy camp or not",
+        text: "Your country will discuss if it wants to declare War against the enemy camp or not",
         options: [
             {
                 text: "Take decision",
@@ -121,7 +121,7 @@ const textNodes = [
     },
     {
         id: 6,
-        text: "Some forces from the army of USA, attack an airport for one of your allies, what you will do?"
+        text: "Some forces from the army of USA, attacks an airport of one of your allies, what will you do?"
         , options: [
             {
                 text: "Attack",
@@ -136,7 +136,7 @@ const textNodes = [
     },
     {
         id: 7,
-        text: "Your country will discuss if it wants to declare a War again the enemy camp or not",
+        text: "Your country will discuss if it wants to declare a War against the enemy camp or not",
         options: [
             {
                 text: "Take decision",
@@ -147,7 +147,7 @@ const textNodes = [
     },
     {
         id : 8,
-        text : "Your decision was to avoid the War, Congratulations you made the peace.",
+        text : "Your decision was to avoid the War, Congratulations you made peace.",
         options: [
             {
                 text: "Restart",
