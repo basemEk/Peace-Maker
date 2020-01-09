@@ -9,9 +9,15 @@ function showTextNode(textNodeIndex) {
     const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
     textElement.innerText = textNode['text'];
     imgElement.setAttribute("src", textNode.imgPath)
-    while (optionsButtonsElement.firstChild) {
-        optionsButtonsElement.removeChild(optionsButtonsElement.firstChild)
+    while(optionsButtonsElement.firstChild) {
+        optionsButtonsElement.removeChild(optionsButtonsElement.firstChild);
     }
+    while(document.getElementById("escalation").firstChild){
+        document.getElementById("escalation").removeChild(document.getElementById("escalation").firstChild);
+    }
+    const warEscalation = document.createElement('div');
+    warEscalation.innerText = textNode.warEscalation;
+    document.getElementById("escalation").appendChild(warEscalation);
     textNode.options.forEach(option => {
             const button = document.createElement('button');
             button.innerText = option.text
@@ -20,7 +26,7 @@ function showTextNode(textNodeIndex) {
             optionsButtonsElement.appendChild(button)
 
     });
-    setTimeout(responsiveVoice.speak(document.getElementById("text").textContent,"Arabic Male"), 201);
+    setTimeout(responsiveVoice.speak(document.getElementById("text").textContent,"UK English Male"), 201);
     if(textNodeIndex == 5 || textNodeIndex == 7){
         document.querySelector('button').addEventListener("click" , () =>{
             let indexNumber = textNodeIndex-1;
@@ -66,8 +72,9 @@ const textNodes = [
         id: 2,
         text: `you are now a military leader in the American Army, Donald trump
          ordered the forces to assassinate a general from the enemy camp, now
-          Russia and its allies planning to have their revenge.`
-        , options: [
+          Russia and its allies planning to have their revenge.`,
+        warEscalation:"War Escalation = 2", 
+        options: [
             {
                 text: "War deceleration"
                 , nextText: 4
@@ -84,6 +91,7 @@ const textNodes = [
         text: `you are now a military leader in the Russian Army, Donald trump
         ordered his forces to assassinate a general from your camp, now
          you have the choice either to attack or to calm down`,
+         warEscalation:"War Escalation = 2",
         options: [
             {
                 text: "Attack",
@@ -98,7 +106,8 @@ const textNodes = [
     },
     {
         id: 4,
-        text: "World War 3 started, GAME OVER!",
+        text: "You decided to go to war, World War 3 started, GAME OVER!",
+        warEscalation:"War Escalation = It's Over 9000 !!!",
         options: [
             {
                 text: "Restart",
@@ -110,6 +119,7 @@ const textNodes = [
     {
         id: 5,
         text: "Your country will discuss if it wants to declare War against the enemy camp or not",
+        warEscalation:"War Escalation = 1",
         options: [
             {
                 text: "Take decision",
@@ -121,7 +131,9 @@ const textNodes = [
     {
         id: 6,
         text: "Some forces from the army of USA, attacks an airport of one of your allies, what will you do?"
-        , options: [
+        , 
+        warEscalation:" War Escalation = 5",
+        options: [
             {
                 text: "Attack",
                 nextText: 4
@@ -136,6 +148,7 @@ const textNodes = [
     {
         id: 7,
         text: "Your country will discuss if it wants to declare a War against the enemy camp or not",
+        warEscalation:"War Escalation = 1",
         options: [
             {
                 text: "Take decision",
@@ -147,6 +160,7 @@ const textNodes = [
     {
         id : 8,
         text : "Your decision was to avoid the War, Congratulations you made peace.",
+        warEscalation:"War Escalation = 0",
         options: [
             {
                 text: "Restart",
