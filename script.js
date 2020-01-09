@@ -28,17 +28,13 @@ function showTextNode(textNodeIndex) {
         document.querySelector('button').addEventListener("click" , () =>{
             let indexNumber = textNodeIndex-1;
             let rand = Math.random()
-            alert(rand)
-
             if(rand > 0.5){
-                alert("war")
                 textNodes[indexNumber].options["nextText"] = 4;
                 showTextNode(4)
             }
             
             else {
                 textNodes[indexNumber].options["nextText"]= 8;
-                alert("no war")
                 showTextNode(8);
             }
         });
