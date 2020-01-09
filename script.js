@@ -1,14 +1,13 @@
 const textElement = document.getElementById('text');
 const optionsButtonsElement = document.getElementById('option-button');
 const imgElement = document.getElementById("img");
+
 function startGame() {
     showTextNode(1)
 }
 function showTextNode(textNodeIndex) {
     const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
-    
     textElement.innerText = textNode['text'];
-    
     imgElement.setAttribute("src", textNode.imgPath)
     while (optionsButtonsElement.firstChild) {
         optionsButtonsElement.removeChild(optionsButtonsElement.firstChild)
@@ -43,7 +42,9 @@ function selectOption(option) {
     if (option.nextText < 0)
         return startGame();
     showTextNode(option.nextText)
+    setTimeout(responsiveVoice.speak(document.getElementById("text").textContent,"UK English Male"), 201)
 }
+
 const textNodes = [
     {
         id: 1,
