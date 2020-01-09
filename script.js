@@ -3,7 +3,7 @@ const optionsButtonsElement = document.getElementById('option-button');
 const imgElement = document.getElementById("img");
 
 function startGame() {
-    showTextNode(1)
+    showTextNode(9)
 }
 function showTextNode(textNodeIndex) {
     const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
@@ -20,7 +20,7 @@ function showTextNode(textNodeIndex) {
             optionsButtonsElement.appendChild(button)
 
     });
-
+    setTimeout(responsiveVoice.speak(document.getElementById("text").textContent,"Arabic Male"), 201);
     if(textNodeIndex == 5 || textNodeIndex == 7){
         document.querySelector('button').addEventListener("click" , () =>{
             let indexNumber = textNodeIndex-1;
@@ -42,7 +42,6 @@ function selectOption(option) {
     if (option.nextText < 0)
         return startGame();
     showTextNode(option.nextText)
-    setTimeout(responsiveVoice.speak(document.getElementById("text").textContent,"UK English Male"), 201)
 }
 
 const textNodes = [
@@ -103,7 +102,7 @@ const textNodes = [
         options: [
             {
                 text: "Restart",
-                nextText: -1
+                nextText: 1
             }
         ],
         imgPath: "img/GmOver.jpeg"
@@ -151,10 +150,21 @@ const textNodes = [
         options: [
             {
                 text: "Restart",
-                nextText: -1
+                nextText: 1
             }
         ],
         imgPath: "img/peace.png"
+    },
+    {
+        id : 9,
+        text : "The best Interactive Story in the market, Peace Maker",
+        options: [
+            {
+                text: "Start Game",
+                nextText: 1,
+            }
+        ],
+        imgPath: "img/begin.png"
     }
 ]
 startGame()
