@@ -8,26 +8,43 @@ function startGame() {
 }
 function showTextNode(textNodeIndex) {
     const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
+    
     textElement.innerText = textNode['text'];
-    alert(textNode.imgPath)
-    imgElement.setAttribute("src", textNode.imgPath) 
+    
+    imgElement.setAttribute("src", textNode.imgPath)
     while (optionsButtonsElement.firstChild) {
         optionsButtonsElement.removeChild(optionsButtonsElement.firstChild)
     }
     textNode.options.forEach(option => {
-        if (showOption(option)) {
             const button = document.createElement('button');
             button.innerText = option.text
             button.classList.add('btn')
             button.addEventListener('click', () => selectOption(option))
             optionsButtonsElement.appendChild(button)
-        }
 
     });
+
+    if(textNodeIndex == 5 || textNodeIndex == 7){
+        document.querySelector('button').addEventListener("click" , () =>{
+            let indexNumber = textNodeIndex-1;
+            let rand = Math.random()
+            alert(rand)
+
+            if(rand > 0.5){
+                alert("war")
+                textNodes[indexNumber].options["nextText"] = 4;
+                showTextNode(4)
+            }
+            
+            else {
+                textNodes[indexNumber].options["nextText"]= 8;
+                alert("no war")
+                showTextNode(8);
+            }
+        });
+    }
 }
-function showOption(option) {
-    return true;
-}
+
 function selectOption(option) {
     if (option.nextText < 0)
         return startGame();
@@ -50,7 +67,7 @@ const textNodes = [
                 nextText: 3
             }
         ],
-        imgPath : "img/intro.jpeg"
+        imgPath: "img/intro.jpeg"
     },
     {
         id: 2,
@@ -67,7 +84,7 @@ const textNodes = [
                 , nextText: 5
             }
         ]
-        ,imgPath : "img/trump.jpeg"
+        , imgPath: "img/trump.jpeg"
     },
     {
         id: 3,
@@ -83,7 +100,8 @@ const textNodes = [
                 text: "Calm Down"
                 , nextText: 6
             }
-        ]
+        ],
+        imgPath: "img/putine.jpeg"
     },
     {
         id: 4,
@@ -94,10 +112,18 @@ const textNodes = [
                 nextText: -1
             }
         ],
-        imgPath : "img/GmOver.jpeg"
+        imgPath: "img/GmOver.jpeg"
     },
     {
         id: 5,
+        text: "Your country will discuss if it wants to declare a War again the enemy camp or not",
+        options: [
+            {
+                text: "Take decision",
+                nextText:null
+            }
+        ],
+        imgPath: "img/usaAllies.jpg"
     },
     {
         id: 6,
@@ -107,10 +133,34 @@ const textNodes = [
                 text: "Attack",
                 nextText: 4
             }, {
-                text: "voting with your allies"
+                text: "voting with your allies",
+                nextText: 7
             }
 
-        ]
+        ],
+        imgPath: "img/trumpLaugh.jpeg"
+    },
+    {
+        id: 7,
+        text: "Your country will discuss if it wants to declare a War again the enemy camp or not",
+        options: [
+            {
+                text: "Take decision",
+                nextText: null
+            }
+        ],
+        imgPath: "img/russiaAllies.jpg"
+    },
+    {
+        id : 8,
+        text : "Your decision was to avoid the War, Congratulations you made the peace.",
+        options: [
+            {
+                text: "Restart",
+                nextText: -1
+            }
+        ],
+        imgPath: "img/peace.png"
     }
 ]
 startGame()
