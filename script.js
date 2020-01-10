@@ -16,7 +16,7 @@ function showTextNode(textNodeIndex) {
         document.getElementById("escalation").removeChild(document.getElementById("escalation").firstChild);
     }
     const warEscalation = document.createElement('div');
-    if (textNodeIndex == 0)
+    if (textNodeIndex == 0 || textNodeIndex == 1)
         warEscalation.innerText = "";
     else
         warEscalation.innerText = textNode.warEscalation;
@@ -29,7 +29,7 @@ function showTextNode(textNodeIndex) {
         optionsButtonsElement.appendChild(button)
 
     });
-    setTimeout(responsiveVoice.speak(document.getElementById("text").textContent, "UK English Male"), 201);
+    setTimeout(responsiveVoice.speak(document.getElementById("text").textContent, "Arabic Male"), 201);
     if (textNodeIndex == 5 || textNodeIndex == 7) {
         document.querySelector('button').addEventListener("click", () => {
             let indexNumber = textNodeIndex - 1;
