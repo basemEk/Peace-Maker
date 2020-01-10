@@ -1,5 +1,5 @@
 # Peace-Maker
-Welcome to `PeaceMkr` game, this game is produced by `BOB` team from the 5 cohort.
+Welcome to `PeaceMkr` game, this game is produced by `BOB` team from the cohort 5.
 
 `Game brief explanation :` 
 
